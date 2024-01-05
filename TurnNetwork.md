@@ -56,5 +56,13 @@ TurnNetwork从TON的分片链的自动伸缩机制获得灵感，设计了两层
 - L1层主链能自动根据游戏运营商的需求自动创建L2层bubble网络，而bubble网络是一个完整的链，有点类似World Engine的EVM 分片，但bubble网络的生命周期的管理是由L1层的主链直接进行，游戏运营商通过在L1层主链上部署业务合约，并质押一定的Token，L1层主链就会自动创建对应的bubble网络，最为神奇的是，不仅可以创建bubble网络，还可以实现自动回收，并且还能根据业务使用情况，创建多个bubble网络，这是不是有点像k8s管理docker容器的功能，游戏运营商在L1层主链上部署的业务合约则有点像在编排bubble。
 - L1层主链是一个具备完备共识（pos+bft）和经济模型的以太坊风格的侧链，兼容EVM，后续不排除兼容更多风格的智能合约和VM，比如wasm
 - L1层主链和bubble网络通过跨链协议和多签方式实现双向通信，不仅打通了资产跨链能力，还具备数据跨链的能力
-- 
+
+TurnNetwork自己本身可以作为以太坊网络L2层，采用ZK-rollup方案接入以太坊生态，目前是具备这种运营弹性的，这样可以让以太坊生态应用快速移植到TurnNetwork之上，而不需要任何成本
+- 这样的架构就成为三层架构，L1：以太坊网络-L2：TurnNetwork-L3：bubble网络
+
+TurnNetwork侧重于扩展链的性能和降低交易手续费，但跟Optimism、Arbitrum、Polygon的解决方案不同的地方是同时具备L2层的能力以外还管理了L3层的bubble网络
+并且全连游戏引擎MUD可以直接部署在TurnNetwork，因为TurnNetwork兼容EVM，甚至World Engine的Game Shard（游戏分片）经过简单修改也能用于TurnNetwork，不排除后续TurnNetwork直接无缝支持World Engine的Game Shard（游戏分片）能力
+
+bubble网络
+- bubble网络才是TurnNetwork的精髓
 
