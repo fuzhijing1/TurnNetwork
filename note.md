@@ -40,6 +40,10 @@ HoneyBadgerBFT算法的核心是RBC广播协议，主要思想是，网络节点
 论文指出HoneyBadgerBFT算法的复杂度是O(NlogN)，在网络节点少的情况下（比如，8节点），HoneyBadgerBFT性能稍逊PBFT算法。
 但是在网络节点变多的情况下，HoneyBadgerBFT算法的性能几乎不变，而PBFT算法的性能显著下降。
 
+![整体视图](TurnNetwork20240109.png "整体视图")
+
+
+
 
 
 
