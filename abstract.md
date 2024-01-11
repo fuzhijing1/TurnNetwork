@@ -9,4 +9,9 @@
   ```
   uint bubbleId = Bubble.selectBubble(size);
   ```
-selectBubble这个方法为业务合约提供了一份非常灵活且强大的功能，当业务合约第一次被调用的时候，该方法会创建一个Bubble网络，如果后续调用这个方法
+selectBubble这个方法非常灵活且强大
+- 当游戏逻辑合约创建room1的时候，调用selectBubble方法，TurnNetwork会创建一个Bubble1网络，并把这个room1跟这个Bubble1网络绑定后，把Bubble1网络的信息返回给游戏客户端
+- 如果有新用户进入游戏并创建room2的时候，调用selectBubble方法，TurnNetwork会判断Bubble1网络是否拥塞，如果拥塞，则会创建一个Bubble2网络，并把room2跟这个Bubble2网络绑定后，把Bubble2网络的信息返回给游戏客户端，如果Bubble1网络不拥塞，则会把room2跟Bubble1网络绑定并快速把Bubble1的信息返回给游戏客户端
+- 以此类推，TurnNetwork可以根据参与游戏玩家数量以及业务拥塞的程度，自动横向扩容的方式解决性能问题，实现业务的弹性
+
+  这是TurnNetwork的核心竞争力
